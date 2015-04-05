@@ -15,6 +15,7 @@
 from azure.storage.blobservice import BlobService
 from azure.storage.tableservice import TableService
 from azure.storage.queueservice import QueueService
+from azure.storage.fileshareservice import FileShareService
 
 
 class CloudStorageAccount(object):
@@ -37,3 +38,6 @@ class CloudStorageAccount(object):
 
     def create_queue_service(self):
         return QueueService(self.account_name, self.account_key)
+
+    def create_file_share_service(self):
+        return FileShareService(self.account_name, self.account_key)

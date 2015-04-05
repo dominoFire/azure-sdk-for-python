@@ -49,6 +49,7 @@ __version__ = '0.10.0'
 BLOB_SERVICE_HOST_BASE = '.blob.core.windows.net'
 QUEUE_SERVICE_HOST_BASE = '.queue.core.windows.net'
 TABLE_SERVICE_HOST_BASE = '.table.core.windows.net'
+FILE_SHARE_SERVICE_HOST_BASE = '.file.core.windows.net'
 SERVICE_BUS_HOST_BASE = '.servicebus.windows.net'
 MANAGEMENT_HOST = 'management.core.windows.net'
 
@@ -56,6 +57,7 @@ MANAGEMENT_HOST = 'management.core.windows.net'
 DEV_BLOB_HOST = '127.0.0.1:10000'
 DEV_QUEUE_HOST = '127.0.0.1:10001'
 DEV_TABLE_HOST = '127.0.0.1:10002'
+DEV_FILE_SHARE_HOST = '127.0.0.1:10004'  # TODO: check this!
 
 # Default credentials for Development Storage Service
 DEV_ACCOUNT_NAME = 'devstoreaccount1'

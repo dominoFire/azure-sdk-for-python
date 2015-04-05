@@ -460,6 +460,19 @@ def _update_storage_blob_header(request, account_name, account_key):
     return request.headers
 
 
+def _update_storage_file_share_header(request, account_name, account_key):
+    ''' add additional headers for storage file share request. '''
+    request = _update_storage_header(request)
+    current_time = datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    request.headers.append(('x-ms-date', current_time))
+    request.headers.append(('Authorization',
+                            _sign_storage_blob_request(request,
+                                                       account_name,
+                                                       account_key)))
+
+    return request.headers
+
+
 def _update_storage_queue_header(request, account_name, account_key):
     ''' add additional headers for storage queue request. '''
     return _update_storage_blob_header(request, account_name, account_key)
@@ -1131,6 +1144,7 @@ def _storage_error_handler(http_error):
 from azure.storage.blobservice import BlobService
 from azure.storage.queueservice import QueueService
 from azure.storage.tableservice import TableService
+from azure.storage.fileshareservice import FileShareService
 from azure.storage.cloudstorageaccount import CloudStorageAccount
 from azure.storage.sharedaccesssignature import (
     SharedAccessSignature,
